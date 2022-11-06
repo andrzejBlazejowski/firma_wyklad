@@ -19,5 +19,9 @@ namespace Firma.Models.EntitiesForView
 
         public DateTime TerminPlatnosci { get; set; }
 
+        public string SposobPlatnosciNazwa { get; set; }
+
+
+
     }
 }
