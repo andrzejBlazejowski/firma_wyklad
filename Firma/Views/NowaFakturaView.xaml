@@ -1,4 +1,4 @@
-﻿<local:WszystkieViewBase x:Class="Firma.Views.NowaFakturaView"
+﻿<local:JedenViewBase x:Class="Firma.Views.NowaFakturaView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,6 +7,54 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
-        <Label Content="Tu będzie dodawanie faktur"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        
+        <Label Grid.Column="0" Grid.Row="0" Content="numer" Margin="0 8 0 8"/>
+        <TextBox Grid.Column="1" Grid.Row="0" Margin="0 8 0 8" Text="{Binding Path=Numer, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="160"/>
+
+        <Label Grid.Column="0" Grid.Row="1" Content="data wystawienia" Margin="0 8 0 8"/>
+        <DatePicker Grid.Column="1" Grid.Row="1" Margin="0 8 0 8"  SelectedDate="{Binding DataWystawienia, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  HorizontalAlignment="Left" Width="160"/>
+
+        <Label Grid.Column="0" Grid.Row="2" Content="Kontrachen" Margin="0 8 0 8"/>
+        <ComboBox Grid.Column="1" Grid.Row="2" Margin="0 8 0 8" HorizontalAlignment="Left" Width="200"
+                        ItemsSource="{Binding KontrachenciComboBoxItems}" 
+                        DisplayMemberPath="Value"
+                        SelectedValuePath="Key"
+                        SelectedValue="{Binding Path=IdKontrachenta, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+        <Button Grid.Column="2" Grid.Row="2" Content="..." Margin="8"/>
+
+        <Label Grid.Column="0" Grid.Row="3" Content="nazwa Kontrachen" Margin="0 8 0 8"/>
+        <TextBox Grid.Column="1" Grid.Row="3"  Margin="0 8 0 8" IsEnabled="False" Text="{Binding Path=KontrachentNazwa, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Column="0" Grid.Row="4" Content="adres Kontrachen" Margin="0 8 0 8"/>
+        <TextBox Grid.Column="1" Grid.Row="4"  Margin="0 8 0 8" IsEnabled="False" Text="{Binding Path=KontrachentAdres, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Column="0" Grid.Row="5" Content="nip Kontrachen" Margin="0 8 0 8"/>
+        <TextBox Grid.Column="1" Grid.Row="5"  Margin="0 8 0 8" IsEnabled="False" Text="{Binding Path=KontrachentNip, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+        <Label Grid.Column="0" Grid.Row="6" Content="termin płatności" Margin="0 8 0 8"/>
+        <DatePicker Grid.Column="1" Grid.Row="6" Margin="0 8 0 8" SelectedDate="{Binding TerminPlatnosci, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Width="160"/>
+
+        <Label Grid.Column="0" Grid.Row="7" Content="sposób płatności" Margin="0 8 0 8"/>
+        <ComboBox Grid.Column="1" Grid.Row="7" Margin="0 8 0 8" HorizontalAlignment="Left" Width="160"
+                        ItemsSource="{Binding SposobyPlatnosciComboBoxItems}" 
+                        DisplayMemberPath="Value"
+                        SelectedValuePath="Key"
+                        SelectedValue="{Binding Path=IdSposobuPlatnosci, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
     </Grid>
-</local:WszystkieViewBase>
+</local:JedenViewBase>

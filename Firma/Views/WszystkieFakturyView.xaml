@@ -7,6 +7,19 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
-        <Label Content="Tu będą wszystkie faktury"/>
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="numer" Binding="{Binding Numer}"/>
+                <DataGridTextColumn Header="data wystawienia" Binding="{Binding DataWystawienia}"/>
+                <DataGridTextColumn Header="Nazwa kontrachenta" Binding="{Binding KontrachentNazwa}"/>
+                <DataGridTextColumn Header="NIP kontrachenta" Binding="{Binding KontrachentNIP}"/>
+                <DataGridTextColumn Header="adres kontrachenta" Binding="{Binding KontrachentAdres}"/>
+                <DataGridTextColumn Header="Termin platnosci" Binding="{Binding TerminPlatnosci}"/>
+                <DataGridTextColumn Header="Sposob platnosci nazwa" Binding="{Binding SposobPlatnosciNazwa}"/>
+
+
+
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </local:WszystkieViewBase>

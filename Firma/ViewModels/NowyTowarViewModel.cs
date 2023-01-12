@@ -118,7 +118,6 @@ namespace Firma.ViewModels
             Item.CzyAktywny = true;
             DB.Towars.AddObject(Item);
             DB.SaveChanges();
-
         }
         #endregion
     }

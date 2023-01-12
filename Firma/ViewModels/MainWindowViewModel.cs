@@ -69,6 +69,7 @@ namespace Firma.ViewModels
                 new CommandViewModel("Towar",new BaseCommand(()=>createView(new NowyTowarViewModel()))),
                 new CommandViewModel("Katura",new BaseCommand(()=>createView(new NowaFakturaViewModel()))),
                 new CommandViewModel("Faktury",new BaseCommand(showAllFaktury)),
+                new CommandViewModel("Raport Sprzedazy",new BaseCommand(showRaportSprzedazy)),
             };
         }
         #endregion
@@ -147,6 +148,21 @@ namespace Firma.ViewModels
             //aktywujemy zakladke
             this.setActiveWorkspace(workspace);
         }
+        private void showRaportSprzedazy()
+        {
+            //sz....
+            RaportSprzedazyViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is RaportSprzedazyViewModel) as RaportSprzedazyViewModel;
+            //jezeli ....
+            if (workspace == null)
+            {
+                //tworzymy nowa zakladke Wszystkie towary
+                workspace = new RaportSprzedazyViewModel();
+                //i dodajemy ja do kolekcji zakladek
+                this.Workspaces.Add(workspace);
+            }
+            //aktywujemy zakladke
+            this.setActiveWorkspace(workspace);
+        }
         private void setActiveWorkspace(WorkspaceViewModel workspace)
         {
             Debug.Assert(this.Workspaces.Contains(workspace));
@@ -155,7 +171,7 @@ namespace Firma.ViewModels
             if (collectionView != null)
                 collectionView.MoveCurrentTo(workspace);
         }
-
+        
 
         #endregion
 
